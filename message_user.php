@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Contact : W3layouts</title>
+<title> Hostel Management System</title>
 	
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				
-				<h1><a class="navbar-brand" href="home.php">NITC <span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="home.php">HMS <span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -99,7 +99,7 @@
 	<!--Header-->
 </div>
 <!-- //banner --> 
-
+<Center> <h2 class="heading text-capitalize mb-sm-5 mb-4"> Messages </h2></center>
 <?php
     $roll_no = $_SESSION['roll'];
     $query = "SELECT * FROM Message WHERE receiver_id ='$roll_no'";
@@ -115,9 +115,9 @@
 
     <div class="container">
       <div class="card">
-      <div class="card-header"><b><?php echo $row['subject_h']; ?></b></div>
-      <div class="card-body"><?php echo $row['message']; ?></div> 
-      <div class="card-footer"><?php echo $hostel_name." Hostel Manager"; ?><span style="float: right"><?php echo $row['msg_date']." ".$row['msg_time']; ?></span></div>
+      <div class="card-header"><b><?php echo "Subject - ".$row['subject_h']; ?></b></div>
+      <div class="card-body"><?php echo "Message - ".$row['message']; ?></div> 
+      <div class="card-footer"><?php echo "From - ".$hostel_name." Hostel Manager"; ?><span style="float: right"><?php echo $row['msg_date']." ".$row['msg_time']; ?></span></div>
   </div>
 </div>
 <br><br>
@@ -134,7 +134,7 @@
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://www.nitc.ac.in/" target="_blank">NIT <span class="display"> CALICUT</span></a>
+			<a class="navbar-brand" href="home.php" target="_blank">HMS <span class="display"></span></a>
 		</div>
 		<div class="footer-grid">
 			
@@ -196,10 +196,6 @@
 								
 			});
 	</script>
-	<!-- //here ends scrolling icon -->
-	<!-- start-smoth-scrolling -->
-	
-<!-- //js-scripts -->
 
 </body>
 </html>
