@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="admin_home.php">NITC <span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="admin_home.php">HMS <span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -76,9 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="students.php">Students</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="admin_contact.php">Contact</a>
-						</li>
+						
 						<li class="dropdown nav-item">
 								<li>
 									<a href="../includes/logout.inc.php" class="nav-link">Logout</a>
@@ -93,6 +91,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</header>
 	<!--Header-->
 <br><br><br><br><br>
+<div class="container">
+<h2 class="heading text-capitalize mb-sm-5 mb-4"> Hosteller Managers </h2>
+<?php
+   //$hostel_id = $_SESSION['hostel_id'];
+   $query1 = "SELECT * FROM hostel_manager where Isadmin = '0'";
+   $result1 = mysqli_query($conn,$query1);
+   
+?>
+
+  <table class="table table-hover" style="background-color:white">
+    <thead>
+      <tr>
+	  <th> ID</th>
+        <th> Name</th>
+        <th>Hostel Name</th>
+        <th>Contact Number</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+      if(mysqli_num_rows($result1)==0){
+         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+      }
+      else{
+      	while($row1 = mysqli_fetch_assoc($result1)){
+            $HID = $row1['Hostel_id'];
+			$contact = $row1['Mob_no'];
+			$MID = $row1['Hostel_man_id'];
+            $query7 = "SELECT * FROM hostel WHERE Hostel_id = '$HID'";
+            $result7 = mysqli_query($conn,$query7);
+			$row2 = mysqli_fetch_assoc($result7);
+            $hostel_name = $row2['Hostel_name'];
+            
+            //student name
+            $Manager_name = $row1['Fname']." ".$row1['Lname'];
+
+      		echo "<tr><td>{$MID}</td><td>{$Manager_name}</td><td>{$hostel_name}</td><td>{$contact}</td></tr>\n";
+      	}
+      }
+    ?>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<br>
 	<div class="main">
 		<div id="navigation" style="display:none;" class="w3_agile">
 			<ul>
